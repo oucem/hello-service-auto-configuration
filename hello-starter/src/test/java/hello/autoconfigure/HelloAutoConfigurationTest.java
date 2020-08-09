@@ -1,12 +1,12 @@
 package hello.autoconfigure;
 
-import hello.ConsoleHelloService;
-import hello.HelloService;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.CoreMatchers.containsString;
+
 import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.rule.OutputCapture;
@@ -17,8 +17,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.containsString;
+import hello.ConsoleHelloService;
+import hello.HelloService;
 
 public class HelloAutoConfigurationTest {
 
@@ -29,6 +29,7 @@ public class HelloAutoConfigurationTest {
 	public OutputCapture output = new OutputCapture();
 
 	private ConfigurableApplicationContext context;
+	
 
 	@After
 	public void closeContext() {
